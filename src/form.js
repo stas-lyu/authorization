@@ -26,12 +26,11 @@ const signUpBtn = document.querySelector('#signUp');
 const signInBtn = document.querySelector('#signIn');
 const signOut = document.querySelector('#signOut');
 const signInModalBtn = document.querySelector('#signInModalOpen');
-const submitBtn = document.querySelector('.submit');
 const emailSignIn = document.querySelector('#emailIn');
 const passwordSignIn = document.querySelector('#passwordIn');
-emailSignIn.addEventListener('input', ()=> {
-    submitBtn.disabled = !isValid(emailSignIn.value)
-    console.log(!isValid(emailSignIn.value))
+
+form.addEventListener('input', ()=> {
+    signInBtn.disabled =  isValid(emailSignIn.value, passwordSignIn.value);
 })
 
 signUpBtn.addEventListener('click', singUpHandler)
