@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelector('.sidenav');
-    var instances = M.Sidenav.init(elems, {});
+    const sidenav = document.querySelector('.sidenav');
+    const sidenavInstances = M.Sidenav.init(sidenav, {});
+    const modal = document.querySelectorAll('.modal');
+    const modalInstances = M.Modal.init(modal, {
+        preventScrolling: false
+    });
 });
