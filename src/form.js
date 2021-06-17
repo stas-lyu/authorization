@@ -1,6 +1,4 @@
-
-
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBRi77xSKKht2Uqqp_1ciCWl-YiAjkDprY",
     authDomain: "frontend-1cdaa.firebaseapp.com",
     databaseURL: "https://frontend-1cdaa-default-rtdb.europe-west1.firebasedatabase.app",
@@ -46,7 +44,6 @@ function signOutHandler(event) {
 auth.onAuthStateChanged(function (user) {
 
     if (user) {
-
         const email = user.email;
         alert("Active User " + email);
     } else {
