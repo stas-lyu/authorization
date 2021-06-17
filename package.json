@@ -2,11 +2,12 @@
   "name": "authorization",
   "version": "1.0.0",
   "description": "",
-  "main": "authorization.js",
+  "main": "src/authorization.js",
   "dependencies": {},
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.6",
+    "firebase": "^8.6.7",
     "html-webpack-plugin": "^5.3.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.39.0",
