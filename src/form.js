@@ -1,7 +1,12 @@
 import {isValid} from "./utils";
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-const form = document.querySelector('form');
-form.addEventListener('submit', submitFormHandler);
+const formSignIn = document.querySelector('#signInForm');
+const formSignUp = document.querySelector('#signUpForm');
+
+formSignUp.addEventListener('submit', submitFormHandler);
+formSignIn.addEventListener('submit', submitFormHandler);
 
 function submitFormHandler(event) {
     event.preventDefault()
@@ -26,11 +31,16 @@ const signUpBtn = document.querySelector('#signUp');
 const signInBtn = document.querySelector('#signIn');
 const signOut = document.querySelector('#signOut');
 const signInModalBtn = document.querySelector('#signInModalOpen');
+const emailSignUp = document.querySelector('#email');
+const passwordSignUp = document.querySelector('#password');
 const emailSignIn = document.querySelector('#emailIn');
 const passwordSignIn = document.querySelector('#passwordIn');
 
-form.addEventListener('input', ()=> {
-    signInBtn.disabled =  isValid(emailSignIn.value, passwordSignIn.value);
+formSignIn.addEventListener('input', () => {
+    signInBtn.disabled = isValid(emailSignIn.value, passwordSignIn.value);
+})
+formSignUp.addEventListener('input', () => {
+    signUpBtn.disabled = isValid(emailSignUp.value, passwordSignUp.value);
 })
 
 signUpBtn.addEventListener('click', singUpHandler)
@@ -38,9 +48,7 @@ signInBtn.addEventListener('click', signInHandler)
 signOut.addEventListener('click', signOutHandler);
 
 function singUpHandler(event) {
-    const email = document.querySelector('#email');
-    const password = document.querySelector('#password');
-    const promise = auth.createUserWithEmailAndPassword(email.value, password.value)
+    const promise = auth.createUserWithEmailAndPassword(emailSignUp.value, passwordSignUp.value)
     promise.catch(e => M.toast({html: e.message})
     )
 }
